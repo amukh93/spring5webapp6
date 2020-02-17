@@ -20,9 +20,23 @@ public class BootstrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+        //Author 1
         Author sunil = new Author("Sunil", "Gangopadhayay");
         Book sheiShomoy = new Book("Shei Shomoy","958125");
         sunil.getBooks().add(sheiShomoy);
         sheiShomoy.getAuthors().add(sunil);
+        authorRepository.save(sunil);
+        bookRepository.save(sheiShomoy);
+        //Author 2
+        Author shirshendu = new Author ("Shirshendu","Mukhopadhayay");
+        Book doorBin = new Book("DoorBin","758654");
+        doorBin.getAuthors().add(shirshendu);
+        shirshendu.getBooks().add(doorBin);
+        authorRepository.save(shirshendu);
+        bookRepository.save(doorBin);
+        //Testing the repo
+        System.out.println("Started Bootstrap");
+        System.out.println("number of books "+bookRepository.count() );
     }
 }
