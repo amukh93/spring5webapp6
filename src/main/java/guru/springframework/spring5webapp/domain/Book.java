@@ -15,6 +15,7 @@ public class Book {
 
     private String title;
     private String isbn;
+    private Publisher publisher;
 
     //Many2Many relationship using an anchor table.
     @ManyToMany
