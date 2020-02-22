@@ -27,13 +27,8 @@ public class BootstrapData implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         //Set Publisher Entity
-        Publisher anandaPublisher = new Publisher();
-        anandaPublisher.setName("Ananda Publishers Pvt. Ltd.");
-        anandaPublisher.setAddressLine1("45 Beniatola Lane");
-        anandaPublisher.setCity("Kolkata");
-        anandaPublisher.setZip("700009");
-        anandaPublisher.setState("West Bengal");
-
+        Publisher anandaPublisher = new Publisher("Ananda Publishers Pvt. Ltd.", "45 Beniatola Lane", "Kolkata", "West Bengal", "700009");
+        publisherRepository.save(anandaPublisher);
 
 
         //Set Details for first Book and its relatives
@@ -57,7 +52,7 @@ public class BootstrapData implements CommandLineRunner {
         //Adding Books to the publisher
         anandaPublisher.getBooks().add(sheiShomoy);
         anandaPublisher.getBooks().add(doorBin);
-        publisherRepository.save(anandaPublisher);
+
 
         //Testing the repo
         System.out.println("Started Bootstrap");
