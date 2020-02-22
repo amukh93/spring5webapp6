@@ -1,11 +1,10 @@
 package guru.springframework.spring5webapp.domain;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class Publisher {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,6 +16,8 @@ public class Publisher {
     private String state;
     private String zip;
 
+    @OneToMany
+    @JoinColumn(name= "publisher_id")
     private Set<Book> books = new HashSet<>();
 
     public Publisher() {

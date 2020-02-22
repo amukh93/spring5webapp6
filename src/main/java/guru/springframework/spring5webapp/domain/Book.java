@@ -15,6 +15,8 @@ public class Book {
 
     private String title;
     private String isbn;
+
+    @ManyToOne
     private Publisher publisher;
 
     //Many2Many relationship using an anchor table.
@@ -58,6 +60,14 @@ public class Book {
 
     public Set<Author> getAuthors() {
         return authors;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
     }
 
     public void setAuthors(Set<Author> authors) {
